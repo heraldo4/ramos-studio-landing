@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.logo {
+    width: 75px;         /* Ajusta según el tamaño que desees */
+    height: 75px;        /* Igual que el width para que sea un círculo perfecto */
+    border-radius: 50%;   /* Esto hace que sea circular */
+    object-fit: cover;    /* Asegura que el contenido se ajuste sin deformarse */
+  }
+  

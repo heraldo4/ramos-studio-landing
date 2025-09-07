@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Servicios | RAMOS Studio CR</title>
+  <link href="../dist/output.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <div id="header"></div>
+
+  <main class="py-16 px-6 bg-white">
+    <div class="container mx-auto text-center">
+      <h2 class="text-4xl font-bold mb-10">Nuestros Servicios</h2>
+      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <div class="p-6 border rounded shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">Paisajismo</h3>
+          <p>Diseño sostenible de espacios exteriores integrados con BIM.</p>
+        </div>
+        <div class="p-6 border rounded shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">Arquitectura</h3>
+          <p>Modelado y coordinación digital para edificaciones eficientes.</p>
+        </div>
+        <div class="p-6 border rounded shadow hover:shadow-lg transition">
+          <h3 class="text-xl font-semibold mb-2">Electromecánica</h3>
+          <p>Diseño técnico en instalaciones eléctricas y mecánicas usando BIM.</p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer"></div>
+
+  <script>
+    fetch("header.html?" + new Date().getTime())
+        .then(res => res.text())
+        .then(data => {
+            document.getElementById("header").innerHTML = data;
+        });
+
+    fetch("footer.html")
+      .then(res => res.text())
+      .then(data => {
+        document.getElementById("footer").innerHTML = data;
+      });
+  </script>
+
+</body>
+</html>
