@@ -3,48 +3,174 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servicios BIM de RAMOS Studio CR — Paisajismo, Arquitectura y Electromecánica con metodología digital avanzada.">
   <title>Servicios | RAMOS Studio CR</title>
-  <link href="../dist/output.css" rel="stylesheet">
+  <link href="../dist/output.css?v=7" rel="stylesheet">
 </head>
-<body class="bg-white text-gray-800 font-sans">
+<body>
 
   <div id="header"></div>
 
-  <main class="py-16 px-6 bg-white">
-    <div class="container mx-auto text-center">
-      <h2 class="text-4xl font-bold mb-10">Nuestros Servicios</h2>
-      <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-        <div class="p-6 border rounded shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">Paisajismo</h3>
-          <p>Diseño sostenible de espacios exteriores integrados con BIM.</p>
+  <!-- ═══════════════════════════════════════
+       PAGE HERO
+  ════════════════════════════════════════ -->
+  <section style="padding:160px 32px 80px; text-align:center; background:radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.03) 0%, transparent 60%), var(--dark);">
+    <div style="max-width:700px; margin:0 auto;">
+      <span class="section-label reveal">Lo que hacemos</span>
+      <h1 class="reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,3.4rem); font-weight:700; color:#111; line-height:1.15; margin-bottom:20px;">
+        Servicios <span class="text-gold">BIM</span> Especializados
+      </h1>
+      <div class="divider-gold reveal reveal-delay-1" style="margin-bottom:24px;"></div>
+      <p class="reveal reveal-delay-2" style="color:#555; font-size:1.05rem; line-height:1.8;">
+        Ofrecemos soluciones digitales integradas en tres disciplinas clave, siempre bajo la metodología BIM para garantizar precisión, coordinación y eficiencia.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       MAIN SERVICES — 3 big cards
+  ════════════════════════════════════════ -->
+  <section style="padding:40px 32px 100px; max-width:1280px; margin:0 auto;">
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px;">
+
+      <!-- 1. Paisajismo -->
+      <div class="glass-card reveal reveal-delay-1" style="padding:40px 32px;">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="#1a1a1a" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M12 22V12M12 12C12 8 8 4 4 4s4 4 8 8zM12 12c0-4 4-8 8-8s-4 4-8 8z"/>
+          </svg>
         </div>
-        <div class="p-6 border rounded shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">Arquitectura</h3>
-          <p>Modelado y coordinación digital para edificaciones eficientes.</p>
+        <h2 style="font-size:1.4rem; font-weight:700; color:#111; margin-bottom:12px;">Paisajismo BIM</h2>
+        <p style="color:#555; line-height:1.8; margin-bottom:24px; font-size:0.94rem;">
+          Diseño sostenible y planificación digital de espacios exteriores. Integramos vegetación, topografía, drenajes y mobiliario urbano en un modelo BIM coordinado con la arquitectura.
+        </p>
+        <ul style="list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:10px;">
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Modelado de terreno y topografía
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Diseño de sistemas de riego BIM
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Visualizaciones fotorrealistas
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Coordinación con arquitectura
+          </li>
+        </ul>
+        <a href="contacto.html" class="btn-ghost" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
+      </div>
+
+      <!-- 2. Arquitectura (destacada) -->
+      <div class="glass-card reveal reveal-delay-2" style="padding:40px 32px; border-color:rgba(0,0,0,0.2); background:rgba(0,0,0,0.02); position:relative; overflow:hidden;">
+        <!-- Badge destacado -->
+        <div style="position:absolute; top:20px; right:20px; background:var(--gold); color:#ffffff; font-size:0.65rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; padding:4px 12px; border-radius:50px;">Popular</div>
+
+        <div class="service-icon" style="background:rgba(0,0,0,0.08); border-color:rgba(0,0,0,0.2);">
+          <svg width="28" height="28" fill="none" stroke="#1a1a1a" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M3 21h18M3 10l9-7 9 7M9 21V10h6v11"/>
+          </svg>
         </div>
-        <div class="p-6 border rounded shadow hover:shadow-lg transition">
-          <h3 class="text-xl font-semibold mb-2">Electromecánica</h3>
-          <p>Diseño técnico en instalaciones eléctricas y mecánicas usando BIM.</p>
+        <h2 style="font-size:1.4rem; font-weight:700; color:#111; margin-bottom:12px;">Arquitectura BIM</h2>
+        <p style="color:#555; line-height:1.8; margin-bottom:24px; font-size:0.94rem;">
+          Modelado arquitectónico completo con Revit. Desde el diseño conceptual hasta los planos constructivos, con coordinación multidisciplinar y detección de interferencias.
+        </p>
+        <ul style="list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:10px;">
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Modelado Revit Architecture
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Planos constructivos LOD 400
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Detección de interferencias (Clash)
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Cómputos métricos BIM
+          </li>
+        </ul>
+        <a href="contacto.html" class="btn-gold" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
+      </div>
+
+      <!-- 3. Electromecánica -->
+      <div class="glass-card reveal reveal-delay-3" style="padding:40px 32px;">
+        <div class="service-icon">
+          <svg width="28" height="28" fill="none" stroke="#1a1a1a" stroke-width="1.8" viewBox="0 0 24 24">
+            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+          </svg>
         </div>
+        <h2 style="font-size:1.4rem; font-weight:700; color:#111; margin-bottom:12px;">Electromecánica BIM</h2>
+        <p style="color:#555; line-height:1.8; margin-bottom:24px; font-size:0.94rem;">
+          Modelado de sistemas MEP (Mecánicos, Eléctricos y de Plomería) integrados en el modelo BIM. Optimizamos rutas, detectamos conflictos y generamos documentación técnica precisa.
+        </p>
+        <ul style="list-style:none; padding:0; margin:0 0 32px; display:flex; flex-direction:column; gap:10px;">
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Revit MEP (eléctrico, mecánico)
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Diseño HVAC y plomería
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Coordinación BIM 3D
+          </li>
+          <li style="display:flex; align-items:center; gap:10px; color:#555; font-size:0.88rem;">
+            <span style="color:var(--gold); flex-shrink:0;">✦</span> Memorias de cálculo
+          </li>
+        </ul>
+        <a href="contacto.html" class="btn-ghost" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
       </div>
     </div>
-  </main>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       TOOLS / TECH STRIP
+  ════════════════════════════════════════ -->
+  <section style="background:var(--dark-3); border-top:1px solid rgba(0,0,0,0.08); border-bottom:1px solid rgba(0,0,0,0.08); padding:60px 32px;">
+    <div style="max-width:1280px; margin:0 auto; text-align:center;">
+      <span class="section-label reveal">Tecnología</span>
+      <h3 class="reveal reveal-delay-1" style="font-size:1.5rem; font-weight:700; color:#111; margin-bottom:40px;">Software y herramientas que utilizamos</h3>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:16px;">
+        <div class="reveal reveal-delay-1" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">Autodesk Revit</div>
+        <div class="reveal reveal-delay-2" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">Navisworks</div>
+        <div class="reveal reveal-delay-3" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">AutoCAD</div>
+        <div class="reveal reveal-delay-4" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">BIM 360</div>
+        <div class="reveal reveal-delay-1" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">Dynamo</div>
+        <div class="reveal reveal-delay-2" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">Lumion</div>
+        <div class="reveal reveal-delay-3" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">Enscape</div>
+        <div class="reveal reveal-delay-4" style="background:rgba(0,0,0,0.05); border:1px solid rgba(0,0,0,0.1); border-radius:10px; padding:14px 28px; color:#444; font-size:0.88rem; font-weight:600; letter-spacing:0.05em;">Civil 3D</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding:100px 32px; text-align:center;">
+    <div class="reveal" style="max-width:600px; margin:0 auto;">
+      <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#111; margin-bottom:16px;">¿Necesitas un servicio específico?</h2>
+      <p style="color:#555; margin-bottom:36px; line-height:1.8;">Cuéntanos sobre tu proyecto y te preparamos una propuesta a medida.</p>
+      <a href="contacto.html" class="btn-gold">
+        Solicitar propuesta
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
 
   <div id="footer"></div>
 
+  <a href="https://wa.me/50688888888" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="whatsapp.png" alt="WhatsApp">
+  </a>
+
+  <style>
+    @media (max-width: 900px) {
+      section > div[style*="grid-template-columns:repeat(3"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
   <script>
-    fetch("header.html?" + new Date().getTime())
-        .then(res => res.text())
-        .then(data => {
-            document.getElementById("header").innerHTML = data;
-        });
-
-    fetch("footer.html")
-      .then(res => res.text())
-      .then(data => {
-        document.getElementById("footer").innerHTML = data;
-      });
+    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; });
+    fetch("footer.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
   </script>
-
 </body>
 </html>

@@ -2,7 +2,8 @@
   "name": "ramos-studio-cr",
   "version": "1.0.0",
   "scripts": {
-    "build": "npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
+    "build": "npx tailwindcss -i ./src/styles.css -o ./dist/output.css --minify",
+    "dev": "npx tailwindcss -i ./src/styles.css -o ./dist/output.css --watch"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",

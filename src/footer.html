@@ -1,3 +1,94 @@
-<footer class="bg-gray-900 text-white text-center py-4">
-    <p>&copy; 2025 RAMOS Studio CR. Todos los derechos reservados.</p>
-  </footer>
+<!-- footer.html -->
+<footer style="background:var(--dark-2); border-top:1px solid rgba(0,0,0,0.08); padding:64px 32px 32px;">
+  <div style="max-width:1280px; margin:0 auto;">
+
+    <!-- Top row -->
+    <div style="display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; margin-bottom:56px;">
+
+      <!-- Brand column -->
+      <div>
+        <div style="display:flex; align-items:center; gap:12px; margin-bottom:20px;">
+          <img src="logoRound.png" alt="RAMOS Studio CR" class="logo" style="width:48px;height:48px;">
+          <div>
+            <div style="font-size:1rem; font-weight:700; color:#111;">RAMOS Studio CR</div>
+            <div style="font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold);">Arquitectura & BIM</div>
+          </div>
+        </div>
+        <p style="color:#666; font-size:0.86rem; line-height:1.8; margin-bottom:24px; max-width:280px;">
+          Soluciones digitales BIM para paisajismo, arquitectura y electromecánica. Transformamos tu visión en proyectos de precisión.
+        </p>
+        <div style="display:flex; gap:10px;">
+          <a href="#" class="social-btn" aria-label="Instagram">
+            <img src="logotipo-de-instagram.png" alt="Instagram">
+          </a>
+          <a href="#" class="social-btn" aria-label="LinkedIn">
+            <img src="linkedin.png" alt="LinkedIn">
+          </a>
+          <a href="https://wa.me/50688888888" class="social-btn" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <img src="whatsapp.png" alt="WhatsApp">
+          </a>
+        </div>
+      </div>
+
+      <!-- Services -->
+      <div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Servicios</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+          <li><a href="servicios.html" class="footer-link">Arquitectura BIM</a></li>
+          <li><a href="servicios.html" class="footer-link">Paisajismo BIM</a></li>
+          <li><a href="servicios.html" class="footer-link">Electromecánica</a></li>
+          <li><a href="servicios.html" class="footer-link">Coordinación MEP</a></li>
+          <li><a href="servicios.html" class="footer-link">Renderizado 3D</a></li>
+        </ul>
+      </div>
+
+      <!-- Company -->
+      <div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Empresa</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+          <li><a href="index.html" class="footer-link">Inicio</a></li>
+          <li><a href="proyectos.html" class="footer-link">Proyectos</a></li>
+          <li><a href="contacto.html" class="footer-link">Contacto</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <div style="font-size:0.72rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;">Contacto</div>
+        <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+          <li style="color:#666680; font-size:0.86rem;">📍 San José, Costa Rica</li>
+          <li><a href="mailto:info@ramosstudiocr.com" class="footer-link">info@ramosstudiocr.com</a></li>
+          <li><a href="https://wa.me/50688888888" class="footer-link" target="_blank" rel="noopener">+506 8888 8888</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div style="border-top:1px solid rgba(0,0,0,0.08); padding-top:28px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px;">
+      <p style="color:#777; font-size:0.82rem; margin:0;">
+        &copy; 2025 RAMOS Studio CR. Todos los derechos reservados.
+      </p>
+      <p style="color:#999; font-size:0.78rem; margin:0;">
+        Modelado BIM · Arquitectura · Electromecánica · Costa Rica
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  @media (max-width: 900px) {
+    footer > div > div[style*="grid-template-columns:2fr 1fr 1fr 1fr"] {
+      grid-template-columns: 1fr 1fr !important;
+      gap: 36px !important;
+    }
+  }
+  @media (max-width: 540px) {
+    footer > div > div[style*="grid-template-columns:2fr 1fr 1fr 1fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    footer > div > div[style*="justify-content:space-between"] {
+      flex-direction: column !important;
+      text-align: center !important;
+    }
+  }
+</style>
