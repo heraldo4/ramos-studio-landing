@@ -275,11 +275,7 @@ body {
 }
 .hero-logo-mark.reveal.visible { opacity: 0.32; }
 @media (max-width: 1150px) {
-  .hero-logo-mark { height: 200px; max-height: 22vh; right: 10px; }
-}
-@media (max-width: 640px) {
-  .hero-logo-mark { height: 150px; max-height: 18vh; right: 0; }
-  .hero-logo-mark.reveal.visible { opacity: 0.22; }
+  .hero-logo-mark { display: none; }
 }
 
 /* Hero background image — foto real integrada como textura, no como card */
@@ -298,7 +294,6 @@ body {
   object-fit: cover;
   object-position: center 32%;
   filter: grayscale(55%) contrast(1.08) brightness(1.03);
-  opacity: 0.55;
 }
 @media (max-width: 1050px) {
   .hero-visual-bg { display: none; }
