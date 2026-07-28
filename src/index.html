@@ -6,7 +6,7 @@
   <meta name="description" content="RAMOS Studio CR — Metodología BIM para paisajismo, arquitectura y electromecánica. Soluciones digitales premium para proyectos extraordinarios.">
   <title>RAMOS Studio CR — BIM & Arquitectura</title>
   <link rel="icon" href="favicon.png" type="image/png">
-  <link href="output.css?v=13" rel="stylesheet">
+  <link href="output.css?v=19" rel="stylesheet">
 </head>
 <body>
 
@@ -25,6 +25,9 @@
        HERO
   ════════════════════════════════════════ -->
   <section class="hero-section">
+    <div class="hero-visual-bg" aria-hidden="true">
+      <img src="img/Arquitectura/proyecto3.jpg" alt="">
+    </div>
     <div class="hero-grid"></div>
     <div class="hero-spotlight" id="heroSpotlight"></div>
     <div class="orb orb-1"></div>
@@ -32,6 +35,7 @@
     <div class="orb orb-3"></div>
 
     <div style="max-width:1280px; margin:0 auto; padding:120px 32px 80px; position:relative; z-index:1; width:100%;">
+      <img src="hero-logo.png" alt="" class="hero-logo-mark reveal reveal-delay-4" aria-hidden="true">
       <div style="max-width:760px;">
 
         <div class="hero-badge reveal">
@@ -326,13 +330,16 @@
     }, { threshold: 0.5 });
     document.querySelectorAll('.counter').forEach(el => counterObs.observe(el));
 
-    // ─── ORBS: float + mouse parallax (replaces CSS keyframes) ─
-    const orbEls   = [null, null, null];
-    const orbPos   = [{x:0,y:0},{x:0,y:0},{x:0,y:0}];
-    const orbCfg   = [
+    // ─── ORBS + HERO LOGO: float + mouse parallax (replaces CSS keyframes) ─
+    const floatSel = ['.orb-1', '.orb-2', '.orb-3', '.hero-logo-mark', '.hero-visual-bg'];
+    const floatEls = [null, null, null, null, null];
+    const floatPos = [{x:0,y:0,r:0},{x:0,y:0,r:0},{x:0,y:0,r:0},{x:0,y:0,r:0},{x:0,y:0,r:0}];
+    const floatCfg = [
       { floatX:35, floatY:38, parallax:38, speed:0.45 },
       { floatX:42, floatY:28, parallax:-26, speed:0.35 },
-      { floatX:18, floatY:22, parallax:20, speed:0.65 }
+      { floatX:18, floatY:22, parallax:20, speed:0.65 },
+      { floatX:12, floatY:16, parallax:16, speed:0.22, rotate:0.8 },
+      { floatX:6, floatY:8, parallax:10, speed:0.3 }
     ];
     let mxN = 0, myN = 0;
 
@@ -341,21 +348,27 @@
       myN = (e.clientY / window.innerHeight - 0.5) * 2;
     });
 
-    function orbTick(ts) {
+    function floatTick(ts) {
       const t = ts * 0.001;
-      ['.orb-1','.orb-2','.orb-3'].forEach((sel, i) => {
-        if (!orbEls[i]) orbEls[i] = document.querySelector(sel);
-        if (!orbEls[i]) return;
-        const c = orbCfg[i], seed = i * 2.094;
+      floatSel.forEach((sel, i) => {
+        if (!floatEls[i]) floatEls[i] = document.querySelector(sel);
+        if (!floatEls[i]) return;
+        const c = floatCfg[i], seed = i * 2.094;
         const tx = Math.sin(t * c.speed + seed) * c.floatX + mxN * c.parallax;
         const ty = Math.cos(t * c.speed * 0.78 + seed) * c.floatY + myN * c.parallax * 0.55;
-        orbPos[i].x += (tx - orbPos[i].x) * 0.025;
-        orbPos[i].y += (ty - orbPos[i].y) * 0.025;
-        orbEls[i].style.transform = `translate(${orbPos[i].x}px,${orbPos[i].y}px)`;
+        floatPos[i].x += (tx - floatPos[i].x) * 0.025;
+        floatPos[i].y += (ty - floatPos[i].y) * 0.025;
+        let transform = `translate(${floatPos[i].x}px,${floatPos[i].y}px)`;
+        if (c.rotate) {
+          const tr = Math.sin(t * c.speed * 0.5 + seed) * c.rotate;
+          floatPos[i].r += (tr - floatPos[i].r) * 0.025;
+          transform += ` rotate(${floatPos[i].r.toFixed(2)}deg)`;
+        }
+        floatEls[i].style.transform = transform;
       });
-      requestAnimationFrame(orbTick);
+      requestAnimationFrame(floatTick);
     }
-    requestAnimationFrame(orbTick);
+    requestAnimationFrame(floatTick);
 
     // ─── MAGNETIC BUTTONS ────────────────────────────────────
     document.querySelectorAll('.btn-gold, .btn-ghost').forEach(btn => {

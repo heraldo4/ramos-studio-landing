@@ -259,6 +259,47 @@ body {
 .orb-2 { width: 350px; height: 350px; background: #999999; bottom: -60px; left: -60px; will-change: transform; }
 .orb-3 { width: 200px; height: 200px; background: #cccccc; top: 40%; left: 40%; will-change: transform; }
 
+/* Hero brand mark — textura de fondo, no elemento en primer plano */
+.hero-logo-mark {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 30px;
+  margin: auto 0;
+  height: 260px;
+  max-height: 28vh;
+  width: auto;
+  pointer-events: none;
+  user-select: none;
+  will-change: transform;
+}
+.hero-logo-mark.reveal.visible { opacity: 0.15; }
+@media (max-width: 1150px) {
+  .hero-logo-mark { display: none; }
+}
+
+/* Hero background image — foto real integrada como textura, no como card */
+.hero-visual-bg {
+  position: absolute;
+  inset: 0;
+  left: 38%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 30%, black 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent, black 30%, black 100%);
+  will-change: transform;
+}
+.hero-visual-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 32%;
+  filter: grayscale(55%) contrast(1.08) brightness(1.03);
+  opacity: 0.55;
+}
+@media (max-width: 1050px) {
+  .hero-visual-bg { display: none; }
+}
+
 @keyframes floatOrb1 {
   0%, 100% { transform: translate(0,0) scale(1); }
   50% { transform: translate(-40px, 60px) scale(1.1); }
