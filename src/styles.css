@@ -273,7 +273,7 @@ body {
   user-select: none;
   will-change: transform;
 }
-.hero-logo-mark.reveal.visible { opacity: 0.15; }
+.hero-logo-mark.reveal.visible { opacity: 0.32; }
 @media (max-width: 1150px) {
   .hero-logo-mark { display: none; }
 }
