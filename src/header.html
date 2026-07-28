@@ -8,7 +8,7 @@
     <div style="display:flex; align-items:center; justify-content:space-between;">
 
       <!-- Logo + Brand -->
-      <a href="/" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
+      <a href="index.html" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
         <div>
           <div style="font-size:1.05rem; font-weight:700; color:#111; letter-spacing:0.04em; line-height:1.2;">RAMOS Studio CR</div>
           <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500;">Arquitectura & BIM</div>
@@ -17,11 +17,11 @@
 
       <!-- Desktop nav -->
       <nav class="desktop-nav" style="display:flex; align-items:center; gap:36px;">
-        <a href="/" class="nav-link">Inicio</a>
-        <a href="/servicios" class="nav-link">Servicios</a>
-        <a href="/proyectos" class="nav-link">Proyectos</a>
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="proyectos.html" class="nav-link">Proyectos</a>
         <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="padding:9px 22px; font-size:0.82rem;">Servicios de Automatización</a>
-        <a href="/contacto" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contáctenos</a>
+        <a href="contacto.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contáctenos</a>
       </nav>
 
       <!-- Hamburger (mobile) -->
@@ -35,11 +35,11 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="/">Inicio</a>
-    <a href="/servicios">Servicios</a>
-    <a href="/proyectos">Proyectos</a>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="proyectos.html">Proyectos</a>
     <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer">Servicios de Automatización</a>
-    <a href="/contacto" style="color:var(--gold);">Contáctenos</a>
+    <a href="contacto.html" style="color:var(--gold);">Contáctenos</a>
   </div>
 </header>
 
@@ -61,10 +61,11 @@
 
   // Active nav link
   const links = document.querySelectorAll('.nav-link, .mobile-menu a');
-  const current = location.pathname.replace(/\/index\.html$/, '/').replace(/\.html$/, '') || '/';
+  const normalize = p => (p || '').replace(/\.html$/, '').replace(/^\//, '').replace(/\/$/, '') || 'index';
+  const current = normalize(location.pathname);
   links.forEach(link => {
     const href = link.getAttribute('href');
-    if (href && href === current) {
+    if (href && normalize(href) === current) {
       link.classList.add('active');
     }
   });

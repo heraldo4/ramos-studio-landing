@@ -59,7 +59,7 @@
             <span style="color:var(--gold); flex-shrink:0;">✦</span> Coordinación con arquitectura
           </li>
         </ul>
-        <a href="/contacto" class="btn-ghost" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
+        <a href="contacto.html" class="btn-ghost" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
       </div>
 
       <!-- 2. Arquitectura (destacada) -->
@@ -90,7 +90,7 @@
             <span style="color:var(--gold); flex-shrink:0;">✦</span> Cómputos métricos BIM
           </li>
         </ul>
-        <a href="/contacto" class="btn-gold" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
+        <a href="contacto.html" class="btn-gold" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
       </div>
 
       <!-- 3. Electromecánica -->
@@ -118,7 +118,7 @@
             <span style="color:var(--gold); flex-shrink:0;">✦</span> Memorias de cálculo
           </li>
         </ul>
-        <a href="/contacto" class="btn-ghost" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
+        <a href="contacto.html" class="btn-ghost" style="font-size:0.85rem; padding:10px 22px;">Solicitar cotización</a>
       </div>
     </div>
   </section>
@@ -148,7 +148,7 @@
     <div class="reveal" style="max-width:600px; margin:0 auto;">
       <h2 style="font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#111; margin-bottom:16px;">¿Necesitas un servicio específico?</h2>
       <p style="color:#555; margin-bottom:36px; line-height:1.8;">Cuéntanos sobre tu proyecto y te preparamos una propuesta a medida.</p>
-      <a href="/contacto" class="btn-gold">
+      <a href="contacto.html" class="btn-gold">
         Solicitar propuesta
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
@@ -168,7 +168,17 @@
   </style>
 
   <script>
-    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; });
+    // Los <script> insertados vía innerHTML no se ejecutan solos:
+    // hay que recrearlos para que el navegador los corra.
+    function injectHTML(el, html) {
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
+    }
+    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => injectHTML(document.getElementById("header"), d));
     fetch("footer.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));

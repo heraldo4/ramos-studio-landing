@@ -169,7 +169,17 @@
   </style>
 
   <script>
-    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("header").innerHTML = d; });
+    // Los <script> insertados vía innerHTML no se ejecutan solos:
+    // hay que recrearlos para que el navegador los corra.
+    function injectHTML(el, html) {
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
+    }
+    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => injectHTML(document.getElementById("header"), d));
     fetch("footer.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
 
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
