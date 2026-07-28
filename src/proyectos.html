@@ -119,7 +119,14 @@
       padding-bottom: 18px;
       border-bottom: 1px solid rgba(0,0,0,0.08);
     }
-    .disc-section-title { font-size: 1.5rem; font-weight: 700; color: #111; margin: 2px 0 6px; }
+    .disc-section-title {
+      font-family: 'Playfair Display', 'Georgia', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.01em;
+      margin: 4px 0 8px;
+    }
     .disc-section-desc { color: #666; font-size: 0.92rem; line-height: 1.7; max-width: 560px; }
     .disc-section-badges { display: flex; gap: 8px; flex-wrap: wrap; }
     .disc-badge-pill {
@@ -140,19 +147,26 @@
       color: var(--gold);
     }
 
-    /* ── Individual photo grid ── */
+    /* ── Individual photo grid (bento: primera foto destacada) ── */
     .photo-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 110px;
+      grid-auto-flow: dense;
+      gap: 14px;
     }
     .photo-card {
       position: relative;
       overflow: hidden;
       border-radius: 14px;
       cursor: pointer;
-      aspect-ratio: 4 / 3;
       background: var(--dark-3);
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .photo-card.featured {
+      grid-column: span 3;
+      grid-row: span 3;
     }
     .photo-card img {
       width: 100%;
@@ -193,6 +207,7 @@
       box-sizing: content-box;
     }
     .photo-card:hover .photo-card-zoom { opacity: 1; transform: scale(1); }
+    .photo-card.featured .photo-card-zoom svg { width: 26px; height: 26px; padding: 15px; }
 
     /* ── Placeholder (disciplina sin fotos aún) ── */
     .disc-placeholder {
@@ -218,8 +233,15 @@
     }
     .disc-placeholder p { color: #999; font-size: 0.88rem; line-height: 1.6; margin: 0; }
 
+    @media (max-width: 900px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 100px; }
+      .photo-card { grid-column: span 2; grid-row: span 2; }
+      .photo-card.featured { grid-column: span 4; grid-row: span 3; }
+    }
     @media (max-width: 640px) {
-      .photo-grid { grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
+      .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; gap: 10px; }
+      .photo-card { grid-column: span 1; grid-row: span 1; }
+      .photo-card.featured { grid-column: span 2; grid-row: span 2; }
       .disc-section-head { flex-direction: column; align-items: flex-start; }
     }
 
@@ -428,7 +450,7 @@
         const badgesHtml = g.badges.map(b => `<span class="disc-badge-pill">${b}</span>`).join('');
         const body = g.images.length
           ? `<div class="photo-grid">${g.images.map((src, i) => `
-              <div class="photo-card reveal reveal-delay-${(i % 4) + 1}" data-key="${key}" data-index="${i}" tabindex="0" role="button" aria-label="Ver foto ${i + 1} de ${g.title}">
+              <div class="photo-card${i === 0 ? ' featured' : ''} reveal reveal-delay-${(i % 4) + 1}" data-key="${key}" data-index="${i}" tabindex="0" role="button" aria-label="Ver foto ${i + 1} de ${g.title}">
                 <img src="${src}" alt="${g.title} — foto ${i + 1}" loading="lazy">
                 <div class="photo-card-zoom">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
