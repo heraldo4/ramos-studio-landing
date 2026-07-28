@@ -1,6 +1,31 @@
 [build]
   publish = "src"
 
+# ── Clean URLs (redirect old *.html paths) ────────────────────────
+[[redirects]]
+  from = "/index.html"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/servicios.html"
+  to = "/servicios"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/proyectos.html"
+  to = "/proyectos"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contacto.html"
+  to = "/contacto"
+  status = 301
+  force = true
+
 # ── Security headers ─────────────────────────────────────────────
 [[headers]]
   for = "/*"
