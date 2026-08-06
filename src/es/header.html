@@ -8,7 +8,7 @@
     <div style="display:flex; align-items:center; justify-content:space-between;">
 
       <!-- Logo + Brand -->
-      <a href="index.html" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
+      <a href="/es/index.html" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
         <div>
           <div style="font-size:1.05rem; font-weight:700; color:#111; letter-spacing:0.04em; line-height:1.2;">RAMOS Studio CR</div>
           <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500;">Arquitectura & BIM</div>
@@ -17,17 +17,17 @@
 
       <!-- Desktop nav -->
       <nav class="desktop-nav" style="display:flex; align-items:center; gap:28px;">
-        <a href="index.html" class="nav-link">Inicio</a>
-        <a href="servicios.html" class="nav-link">Servicios</a>
-        <a href="proyectos.html" class="nav-link">Proyectos</a>
+        <a href="/es/index.html" class="nav-link">Inicio</a>
+        <a href="/es/servicios.html" class="nav-link">Servicios</a>
+        <a href="/es/proyectos.html" class="nav-link">Proyectos</a>
 
         <div class="lang-switch" role="group" aria-label="Idioma">
-          <a href="../index.html" class="lang-btn" data-lang-alt>EN</a>
+          <a href="/index.html" class="lang-btn" data-lang-alt>EN</a>
           <span class="lang-btn active" aria-current="true">ES</span>
         </div>
 
         <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="padding:9px 22px; font-size:0.82rem;">Servicios de Automatización</a>
-        <a href="contacto.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contáctenos</a>
+        <a href="/es/contacto.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contáctenos</a>
       </nav>
 
       <!-- Hamburger (mobile) -->
@@ -41,13 +41,13 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html">Inicio</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="proyectos.html">Proyectos</a>
+    <a href="/es/index.html">Inicio</a>
+    <a href="/es/servicios.html">Servicios</a>
+    <a href="/es/proyectos.html">Proyectos</a>
     <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer">Servicios de Automatización</a>
-    <a href="contacto.html" style="color:var(--gold);">Contáctenos</a>
+    <a href="/es/contacto.html" style="color:var(--gold);">Contáctenos</a>
     <div class="lang-switch lang-switch-mobile" role="group" aria-label="Idioma">
-      <a href="../index.html" class="lang-btn" data-lang-alt>English</a>
+      <a href="/index.html" class="lang-btn" data-lang-alt>English</a>
       <span class="lang-btn active" aria-current="true">Español</span>
     </div>
   </div>
@@ -69,11 +69,13 @@
     menu.classList.toggle('open');
   });
 
-  // Normalize a path/href down to its page basename (ignores directory, extension, trailing slash)
+  // Normalize a path/href down to its page basename (ignores directory, extension, trailing slash).
+  // A bare "/es" (no trailing slash) collapses to the single segment "es" — treat that as the ES home page.
   const normalize = p => {
     const parts = (p || '').split('/').filter(Boolean);
     const last = parts.pop();
-    return (last || 'index').replace(/\.html$/, '');
+    const slug = (last || 'index').replace(/\.html$/, '');
+    return slug === 'es' ? 'index' : slug;
   };
   const current = normalize(location.pathname);
 
@@ -88,7 +90,7 @@
 
   // Language switch — link to the equivalent English page
   const enMap = { index: 'index.html', servicios: 'services.html', proyectos: 'projects.html', contacto: 'contact.html' };
-  const enHref = '../' + (enMap[current] || 'index.html');
+  const enHref = '/' + (enMap[current] || 'index.html');
   document.querySelectorAll('[data-lang-alt]').forEach(a => a.setAttribute('href', enHref));
 })();
 </script>

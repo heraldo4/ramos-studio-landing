@@ -8,7 +8,7 @@
     <div style="display:flex; align-items:center; justify-content:space-between;">
 
       <!-- Logo + Brand -->
-      <a href="index.html" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
+      <a href="/index.html" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
         <div>
           <div style="font-size:1.05rem; font-weight:700; color:#111; letter-spacing:0.04em; line-height:1.2;">RAMOS Studio CR</div>
           <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500;">Architecture & BIM</div>
@@ -17,17 +17,17 @@
 
       <!-- Desktop nav -->
       <nav class="desktop-nav" style="display:flex; align-items:center; gap:28px;">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="/index.html" class="nav-link">Home</a>
+        <a href="/services.html" class="nav-link">Services</a>
+        <a href="/projects.html" class="nav-link">Projects</a>
 
         <div class="lang-switch" role="group" aria-label="Language">
           <span class="lang-btn active" aria-current="true">EN</span>
-          <a href="es/index.html" class="lang-btn" data-lang-alt>ES</a>
+          <a href="/es/index.html" class="lang-btn" data-lang-alt>ES</a>
         </div>
 
         <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="padding:9px 22px; font-size:0.82rem;">Automation Services</a>
-        <a href="contact.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contact us</a>
+        <a href="/contact.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contact us</a>
       </nav>
 
       <!-- Hamburger (mobile) -->
@@ -41,14 +41,14 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="projects.html">Projects</a>
+    <a href="/index.html">Home</a>
+    <a href="/services.html">Services</a>
+    <a href="/projects.html">Projects</a>
     <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer">Automation Services</a>
-    <a href="contact.html" style="color:var(--gold);">Contact us</a>
+    <a href="/contact.html" style="color:var(--gold);">Contact us</a>
     <div class="lang-switch lang-switch-mobile" role="group" aria-label="Language">
       <span class="lang-btn active" aria-current="true">English</span>
-      <a href="es/index.html" class="lang-btn" data-lang-alt>Español</a>
+      <a href="/es/index.html" class="lang-btn" data-lang-alt>Español</a>
     </div>
   </div>
 </header>
@@ -88,7 +88,7 @@
 
   // Language switch — link to the equivalent Spanish page
   const esMap = { index: 'index.html', services: 'servicios.html', projects: 'proyectos.html', contact: 'contacto.html' };
-  const esHref = 'es/' + (esMap[current] || 'index.html');
+  const esHref = '/es/' + (esMap[current] || 'index.html');
   document.querySelectorAll('[data-lang-alt]').forEach(a => a.setAttribute('href', esHref));
 })();
 </script>

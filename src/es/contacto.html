@@ -183,8 +183,8 @@
         old.replaceWith(s);
       });
     }
-    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => injectHTML(document.getElementById("header"), d));
-    fetch("footer.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+    fetch("/es/header.html?" + new Date().getTime()).then(r => r.text()).then(d => injectHTML(document.getElementById("header"), d));
+    fetch("/es/footer.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
 
     const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.12 });
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
