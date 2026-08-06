@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portafolio de proyectos BIM — RAMOS Studio CR. Arquitectura, paisajismo y electromecánica en Costa Rica.">
+  <title>Proyectos | RAMOS Studio CR</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link href="/output.css?v=25" rel="stylesheet">
+  <link rel="canonical" href="https://www.rstudiocr.com/es/proyectos">
+  <link rel="alternate" hreflang="en" href="https://www.rstudiocr.com/projects">
+  <link rel="alternate" hreflang="es" href="https://www.rstudiocr.com/es/proyectos">
+  <link rel="alternate" hreflang="x-default" href="https://www.rstudiocr.com/projects">
+</head>
+<body>
+
+  <div id="header"></div>
+
+  <!-- ═══════════════════════════════════════
+       PAGE HERO
+  ════════════════════════════════════════ -->
+  <section style="padding:160px 32px 80px; text-align:center; background:radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.03) 0%, transparent 60%), var(--dark);">
+    <div style="max-width:700px; margin:0 auto;">
+      <span class="section-label reveal">Portafolio</span>
+      <h1 class="reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,3.4rem); font-weight:700; color:#111; line-height:1.15; margin-bottom:20px;">
+        Proyectos <span class="text-gold">Destacados</span>
+      </h1>
+      <div class="divider-gold reveal reveal-delay-1" style="margin-bottom:24px;"></div>
+      <p class="reveal reveal-delay-2" style="color:#555; font-size:1.05rem; line-height:1.8;">
+        Cada proyecto refleja nuestro compromiso con la precisión técnica, la innovación digital y la excelencia en la entrega.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       FILTER TABS
+  ════════════════════════════════════════ -->
+  <section style="padding:20px 32px 0; max-width:1280px; margin:0 auto;">
+    <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;" id="filter-btns">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="arquitectura">Arquitectura</button>
+      <button class="filter-btn" data-filter="paisajismo">Paisajismo</button>
+      <button class="filter-btn" data-filter="electrico">Eléctrico</button>
+      <button class="filter-btn" data-filter="mecanico">Mecánico</button>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       PROJECT GALLERIES (apartados por disciplina)
+  ════════════════════════════════════════ -->
+  <section style="padding:48px 32px 100px; max-width:1280px; margin:0 auto;">
+    <div id="projects-grid"></div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       LIGHTBOX
+  ════════════════════════════════════════ -->
+  <div class="lightbox" id="lightbox">
+    <div class="lightbox-title" id="lightboxTitle"></div>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+    <div class="lightbox-stage" id="lightboxStage">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="">
+    </div>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+    <div class="lightbox-bottom">
+      <div class="lightbox-counter" id="lightboxCounter"></div>
+      <div class="lightbox-thumbs" id="lightboxThumbs"></div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
+       CTA
+  ════════════════════════════════════════ -->
+  <section style="background:var(--dark-3); border-top:1px solid rgba(0,0,0,0.08); padding:100px 32px; text-align:center;">
+    <div style="max-width:600px; margin:0 auto;">
+      <span class="section-label reveal">Siguiente paso</span>
+      <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#111; margin-bottom:16px;">Tu proyecto podría estar aquí</h2>
+      <p class="reveal reveal-delay-2" style="color:#555; margin-bottom:36px; line-height:1.8;">Trabajamos contigo desde la idea inicial hasta la entrega final con tecnología BIM de clase mundial.</p>
+      <a href="contacto.html" class="btn-gold reveal reveal-delay-3">
+        Comenzar proyecto
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </section>
+
+  <div id="footer"></div>
+
+  <a href="https://wa.me/50672015758" class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <img src="/whatsapp.png" alt="WhatsApp">
+  </a>
+
+  <style>
+    .filter-btn {
+      padding: 9px 22px;
+      border-radius: 50px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      border: 1.5px solid rgba(0,0,0,0.15);
+      background: transparent;
+      color: #666;
+      cursor: pointer;
+      transition: all 0.25s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      border-color: var(--gold);
+      color: var(--gold);
+      background: rgba(0,0,0,0.05);
+    }
+
+    /* ── Discipline section ── */
+    .disc-section { margin-bottom: 72px; }
+    .disc-section:last-child { margin-bottom: 0; }
+    .disc-section.hidden { display: none; }
+    .disc-section-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 24px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .disc-section-title {
+      font-family: 'Playfair Display', 'Georgia', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: #111;
+      letter-spacing: -0.01em;
+      margin: 4px 0 8px;
+    }
+    .disc-section-desc { color: #666; font-size: 0.92rem; line-height: 1.7; max-width: 560px; }
+    .disc-section-badges { display: flex; gap: 8px; flex-wrap: wrap; }
+    .disc-badge-pill {
+      font-size: 0.72rem;
+      font-weight: 600;
+      background: rgba(0,0,0,0.04);
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 50px;
+      padding: 4px 14px;
+      color: #555;
+      white-space: nowrap;
+    }
+    .disc-section-count {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Individual photo grid (bento: primera foto destacada) ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      grid-auto-rows: 110px;
+      grid-auto-flow: dense;
+      gap: 14px;
+    }
+    .photo-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 14px;
+      cursor: pointer;
+      background: var(--dark-3);
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .photo-card.featured {
+      grid-column: span 3;
+      grid-row: span 3;
+    }
+    .photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s cubic-bezier(.22,.68,0,1.1);
+    }
+    .photo-card:hover img { transform: scale(1.08); }
+    .photo-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0);
+      transition: background 0.25s;
+    }
+    .photo-card:hover::after { background: rgba(0,0,0,0.18); }
+    .photo-card-zoom {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transform: scale(0.85);
+      transition: opacity 0.25s, transform 0.25s;
+      pointer-events: none;
+    }
+    .photo-card-zoom svg {
+      width: 20px;
+      height: 20px;
+      color: #fff;
+      padding: 12px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(3px);
+      -webkit-backdrop-filter: blur(3px);
+      box-sizing: content-box;
+    }
+    .photo-card:hover .photo-card-zoom { opacity: 1; transform: scale(1); }
+    .photo-card.featured .photo-card-zoom svg { width: 26px; height: 26px; padding: 15px; }
+
+    /* ── Placeholder (disciplina sin fotos aún) ── */
+    .disc-placeholder {
+      border-radius: 16px;
+      border: 1.5px dashed rgba(0,0,0,0.16);
+      background: rgba(0,0,0,0.02);
+      min-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 32px 24px;
+    }
+    .disc-placeholder-icon {
+      width: 40px; height: 40px;
+      margin: 0 auto 12px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      background: rgba(0,0,0,0.05);
+      border: 1px solid rgba(0,0,0,0.1);
+      color: var(--gold);
+      font-size: 1rem;
+    }
+    .disc-placeholder p { color: #999; font-size: 0.88rem; line-height: 1.6; margin: 0; }
+
+    @media (max-width: 900px) {
+      .photo-grid { grid-template-columns: repeat(4, 1fr); grid-auto-rows: 100px; }
+      .photo-card { grid-column: span 2; grid-row: span 2; }
+      .photo-card.featured { grid-column: span 4; grid-row: span 3; }
+    }
+    @media (max-width: 640px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 120px; gap: 10px; }
+      .photo-card { grid-column: span 1; grid-row: span 1; }
+      .photo-card.featured { grid-column: span 2; grid-row: span 2; }
+      .disc-section-head { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* ── Lightbox ── */
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 10000;
+      background: rgba(0,0,0,0.95);
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(0.97);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear 0.3s;
+    }
+    .lightbox.open {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s linear;
+    }
+    .lightbox-title {
+      position: absolute;
+      top: 26px; left: 30px;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+    .lightbox-stage {
+      flex: 1;
+      min-height: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 76px 90px 12px;
+    }
+    .lightbox-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      border-radius: 6px;
+      box-shadow: 0 24px 70px rgba(0,0,0,0.55);
+      opacity: 0;
+      transform: scale(0.97);
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+    .lightbox-img.show { opacity: 1; transform: scale(1); }
+    .lightbox-close {
+      position: absolute;
+      top: 20px; right: 26px;
+      z-index: 2;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.18); }
+    .lightbox-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 2;
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: #fff;
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s;
+    }
+    .lightbox-nav:hover { background: rgba(255,255,255,0.18); }
+    .lightbox-prev { left: 20px; }
+    .lightbox-next { right: 20px; }
+    .lightbox-bottom {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 0 24px 24px;
+    }
+    .lightbox-counter {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+    }
+    .lightbox-thumbs {
+      display: flex;
+      gap: 8px;
+      max-width: 100%;
+      overflow-x: auto;
+      padding: 4px 2px;
+      scrollbar-width: thin;
+    }
+    .lightbox-thumb {
+      flex: 0 0 auto;
+      width: 60px;
+      height: 44px;
+      border-radius: 6px;
+      overflow: hidden;
+      border: 2px solid transparent;
+      opacity: 0.45;
+      cursor: pointer;
+      padding: 0;
+      background: none;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+    .lightbox-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .lightbox-thumb:hover { opacity: 0.75; }
+    .lightbox-thumb.active { opacity: 1; border-color: #fff; }
+    @media (max-width: 640px) {
+      .lightbox-title { top: 18px; left: 18px; font-size: 0.65rem; }
+      .lightbox-stage { padding: 60px 46px 8px; }
+      .lightbox-nav { width: 40px; height: 40px; font-size: 1.4rem; }
+      .lightbox-prev { left: 8px; }
+      .lightbox-next { right: 8px; }
+      .lightbox-thumb { width: 46px; height: 34px; }
+    }
+  </style>
+
+  <script>
+    // Los <script> insertados vía innerHTML no se ejecutan solos:
+    // hay que recrearlos para que el navegador los corra.
+    function injectHTML(el, html) {
+      el.innerHTML = html;
+      el.querySelectorAll('script').forEach(old => {
+        const s = document.createElement('script');
+        s.textContent = old.textContent;
+        old.replaceWith(s);
+      });
+    }
+    fetch("header.html?" + new Date().getTime()).then(r => r.text()).then(d => injectHTML(document.getElementById("header"), d));
+    fetch("footer.html?" + new Date().getTime()).then(r => r.text()).then(d => { document.getElementById("footer").innerHTML = d; });
+
+    // ─── SCROLL REVEAL ──────────────────────────────────────────
+    const obs = new IntersectionObserver(es => es.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
+
+    // ─── DISCIPLINE GALLERIES ──────────────────────────────────
+    // Para agregar una foto nueva: solo añade su ruta al arreglo "images"
+    // de la disciplina correspondiente.
+    const galleries = {
+      arquitectura: {
+        title: 'Arquitectura BIM',
+        tag: 'Arquitectura · Residencial y Comercial',
+        desc: 'Modelado arquitectónico completo con Revit, desde el diseño conceptual hasta la documentación constructiva lista para obra.',
+        badges: ['Revit Architecture', 'LOD 400'],
+        images: [
+          '/img/Arquitectura/6.223.jpg',
+          '/img/Arquitectura/proyecto3.jpg',
+          '/img/Arquitectura/3.223.jpg',
+          '/img/Arquitectura/proyecto2.jpg'
+        ]
+      },
+      electrico: {
+        title: 'Sistemas Eléctricos',
+        tag: 'Eléctrico · Coordinación MEP',
+        desc: 'Diseño y coordinación BIM de instalaciones eléctricas, con detección de interferencias y documentación técnica precisa.',
+        badges: ['Revit MEP', 'Clash Detection'],
+        images: [
+          '/img/Eléctrico/1E.jpg',
+          '/img/Eléctrico/2E.jpg',
+          '/img/Eléctrico/3E.jpg',
+          '/img/Eléctrico/4E.jpg',
+          '/img/Eléctrico/5E.jpg',
+          '/img/Eléctrico/6E.jpg',
+          '/img/Eléctrico/7E.jpg',
+          '/img/Eléctrico/8E.jpg',
+          '/img/Eléctrico/10E.jpg'
+        ]
+      },
+      paisajismo: {
+        title: 'Paisajismo BIM',
+        tag: 'Paisajismo',
+        desc: 'Diseño sostenible de espacios exteriores integrado al modelo BIM.',
+        badges: ['Civil 3D', 'Lumion'],
+        images: [
+          '/img/Paisajismo/proyecto1.jpg'
+        ]
+      },
+      mecanico: {
+        title: 'Sistemas Mecánicos',
+        tag: 'Mecánico · HVAC',
+        desc: 'Diseño de sistemas mecánicos, HVAC y plomería coordinados en BIM.',
+        badges: ['Revit MEP', 'HVAC'],
+        images: []
+      }
+    };
+
+    function countLabel(n) { return n === 1 ? '1 foto' : n + ' fotos'; }
+
+    function renderGalleries() {
+      const grid = document.getElementById('projects-grid');
+      grid.innerHTML = Object.entries(galleries).map(([key, g]) => {
+        const badgesHtml = g.badges.map(b => `<span class="disc-badge-pill">${b}</span>`).join('');
+        const body = g.images.length
+          ? `<div class="photo-grid">${g.images.map((src, i) => `
+              <div class="photo-card${i === 0 ? ' featured' : ''} reveal reveal-delay-${(i % 4) + 1}" data-key="${key}" data-index="${i}" tabindex="0" role="button" aria-label="Ver foto ${i + 1} de ${g.title}">
+                <img src="${src}" alt="${g.title} — foto ${i + 1}" loading="lazy">
+                <div class="photo-card-zoom">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+                </div>
+              </div>`).join('')}</div>`
+          : `<div class="disc-placeholder">
+              <div>
+                <div class="disc-placeholder-icon">✦</div>
+                <p>Próximamente — nuevos proyectos en camino.</p>
+              </div>
+            </div>`;
+
+        return `
+          <div class="disc-section reveal" data-category="${key}">
+            <div class="disc-section-head">
+              <div>
+                <div class="disc-section-count">${g.tag}</div>
+                <h2 class="disc-section-title">${g.title}</h2>
+                <p class="disc-section-desc">${g.desc}</p>
+              </div>
+              <div class="disc-section-badges">
+                ${badgesHtml}
+                ${g.images.length ? `<span class="disc-badge-pill">${countLabel(g.images.length)}</span>` : ''}
+              </div>
+            </div>
+            ${body}
+          </div>`;
+      }).join('');
+
+      grid.querySelectorAll('.photo-card').forEach(card => {
+        card.addEventListener('click', () => openLightbox(card.dataset.key, Number(card.dataset.index)));
+        card.addEventListener('keydown', e => {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(card.dataset.key, Number(card.dataset.index)); }
+        });
+      });
+
+      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+    }
+    renderGalleries();
+
+    // ─── LIGHTBOX ───────────────────────────────────────────────
+    let currentKey = null;
+    let currentImages = [];
+    let currentIndex = 0;
+    const lb = document.getElementById('lightbox');
+    const lbImg = document.getElementById('lightboxImg');
+    const lbTitle = document.getElementById('lightboxTitle');
+    const lbCounter = document.getElementById('lightboxCounter');
+    const lbThumbs = document.getElementById('lightboxThumbs');
+    const lbStage = document.getElementById('lightboxStage');
+
+    function renderThumbs() {
+      lbThumbs.innerHTML = currentImages.map((src, i) => `
+        <button class="lightbox-thumb${i === currentIndex ? ' active' : ''}" data-index="${i}" aria-label="Ir a foto ${i + 1}">
+          <img src="${src}" alt="" loading="lazy">
+        </button>`).join('');
+      lbThumbs.querySelectorAll('.lightbox-thumb').forEach(t => {
+        t.addEventListener('click', () => goToImg(Number(t.dataset.index)));
+      });
+      const active = lbThumbs.querySelector('.lightbox-thumb.active');
+      if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+
+    function updateLightboxImg(instant) {
+      const swap = () => {
+        lbImg.src = currentImages[currentIndex];
+        requestAnimationFrame(() => lbImg.classList.add('show'));
+      };
+      if (instant) {
+        swap();
+      } else {
+        lbImg.classList.remove('show');
+        setTimeout(swap, 150);
+      }
+      lbCounter.textContent = (currentIndex + 1) + ' / ' + currentImages.length;
+      lbThumbs.querySelectorAll('.lightbox-thumb').forEach((t, i) => t.classList.toggle('active', i === currentIndex));
+      const active = lbThumbs.querySelector('.lightbox-thumb.active');
+      if (active) active.scrollIntoView({ block: 'nearest', inline: 'center' });
+    }
+    function goToImg(index) { currentIndex = index; updateLightboxImg(); }
+    function openLightbox(key, index) {
+      currentKey = key;
+      currentImages = galleries[key].images;
+      currentIndex = index || 0;
+      lbTitle.textContent = galleries[key].title;
+      lbImg.classList.remove('show');
+      renderThumbs();
+      updateLightboxImg(true);
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function nextImg() { currentIndex = (currentIndex + 1) % currentImages.length; updateLightboxImg(); }
+    function prevImg() { currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length; updateLightboxImg(); }
+
+    document.getElementById('lightboxClose').addEventListener('click', closeLightbox);
+    document.getElementById('lightboxNext').addEventListener('click', nextImg);
+    document.getElementById('lightboxPrev').addEventListener('click', prevImg);
+    lb.addEventListener('click', e => { if (e.target === lb || e.target === lbStage) closeLightbox(); });
+    document.addEventListener('keydown', e => {
+      if (!lb.classList.contains('open')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') nextImg();
+      if (e.key === 'ArrowLeft') prevImg();
+    });
+
+    // Swipe táctil
+    let touchStartX = 0;
+    lbStage.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
+    lbStage.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? nextImg() : prevImg(); }
+    }, { passive: true });
+
+    // ─── FILTER LOGIC ───────────────────────────────────────────
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('#projects-grid > *').forEach(card => {
+          const cat = card.dataset.category || '';
+          card.classList.toggle('hidden', !(filter === 'all' || cat === filter));
+        });
+      });
+    });
+  </script>
+</body>
+</html>

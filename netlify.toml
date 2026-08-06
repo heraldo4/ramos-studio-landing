@@ -9,20 +9,81 @@
   force = true
 
 [[redirects]]
+  from = "/services.html"
+  to = "/services"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/projects.html"
+  to = "/projects"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contact.html"
+  to = "/contact"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/index.html"
+  to = "/es/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/servicios.html"
+  to = "/es/servicios"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/proyectos.html"
+  to = "/es/proyectos"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/es/contacto.html"
+  to = "/es/contacto"
+  status = 301
+  force = true
+
+# ── Legacy Spanish URLs (root used to be Spanish; now redirect to /es/) ──
+[[redirects]]
+  from = "/servicios"
+  to = "/es/servicios"
+  status = 301
+  force = true
+
+[[redirects]]
   from = "/servicios.html"
-  to = "/servicios"
+  to = "/es/servicios"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/proyectos"
+  to = "/es/proyectos"
   status = 301
   force = true
 
 [[redirects]]
   from = "/proyectos.html"
-  to = "/proyectos"
+  to = "/es/proyectos"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/contacto"
+  to = "/es/contacto"
   status = 301
   force = true
 
 [[redirects]]
   from = "/contacto.html"
-  to = "/contacto"
+  to = "/es/contacto"
   status = 301
   force = true
 

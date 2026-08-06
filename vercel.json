@@ -2,5 +2,10 @@
   "buildCommand": "npm run build",
   "outputDirectory": "src",
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/servicios", "destination": "/es/servicios", "permanent": true },
+    { "source": "/proyectos", "destination": "/es/proyectos", "permanent": true },
+    { "source": "/contacto", "destination": "/es/contacto", "permanent": true }
+  ]
 }

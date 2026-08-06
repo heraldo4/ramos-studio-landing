@@ -190,6 +190,43 @@ body {
 .nav-link:hover, .nav-link.active { color: #000; }
 .nav-link:hover::after, .nav-link.active::after { width: 100%; }
 
+/* ── Language switch ── */
+.lang-switch {
+  display: flex;
+  align-items: center;
+  background: rgba(0,0,0,0.05);
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 50px;
+  padding: 3px;
+  gap: 2px;
+}
+.lang-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  padding: 6px 12px;
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: #777;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.lang-btn:hover { color: #111; }
+.lang-btn.active {
+  background: #111111;
+  color: #ffffff;
+  cursor: default;
+}
+.lang-switch-mobile {
+  margin: 16px 32px 0;
+  align-self: flex-start;
+}
+.lang-switch-mobile .lang-btn { font-size: 0.8rem; padding: 8px 14px; }
+
 /* Hamburger */
 .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
 .hamburger span {

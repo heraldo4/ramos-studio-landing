@@ -1,4 +1,4 @@
-<!-- header.html -->
+<!-- header.html (ES) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -11,27 +11,27 @@
       <a href="index.html" style="display:flex; align-items:center; gap:14px; text-decoration:none;">
         <div>
           <div style="font-size:1.05rem; font-weight:700; color:#111; letter-spacing:0.04em; line-height:1.2;">RAMOS Studio CR</div>
-          <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500;">Architecture & BIM</div>
+          <div style="font-size:0.65rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:500;">Arquitectura & BIM</div>
         </div>
       </a>
 
       <!-- Desktop nav -->
       <nav class="desktop-nav" style="display:flex; align-items:center; gap:28px;">
-        <a href="index.html" class="nav-link">Home</a>
-        <a href="services.html" class="nav-link">Services</a>
-        <a href="projects.html" class="nav-link">Projects</a>
+        <a href="index.html" class="nav-link">Inicio</a>
+        <a href="servicios.html" class="nav-link">Servicios</a>
+        <a href="proyectos.html" class="nav-link">Proyectos</a>
 
-        <div class="lang-switch" role="group" aria-label="Language">
-          <span class="lang-btn active" aria-current="true">EN</span>
-          <a href="es/index.html" class="lang-btn" data-lang-alt>ES</a>
+        <div class="lang-switch" role="group" aria-label="Idioma">
+          <a href="../index.html" class="lang-btn" data-lang-alt>EN</a>
+          <span class="lang-btn active" aria-current="true">ES</span>
         </div>
 
-        <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="padding:9px 22px; font-size:0.82rem;">Automation Services</a>
-        <a href="contact.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contact us</a>
+        <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer" class="btn-ghost" style="padding:9px 22px; font-size:0.82rem;">Servicios de Automatización</a>
+        <a href="contacto.html" class="btn-gold" style="padding:10px 24px; font-size:0.82rem;">Contáctenos</a>
       </nav>
 
       <!-- Hamburger (mobile) -->
-      <button class="hamburger" id="hamburger-btn" aria-label="Open menu">
+      <button class="hamburger" id="hamburger-btn" aria-label="Abrir menú">
         <span></span>
         <span></span>
         <span></span>
@@ -41,14 +41,14 @@
 
   <!-- Mobile menu -->
   <div class="mobile-menu" id="mobile-menu">
-    <a href="index.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="projects.html">Projects</a>
-    <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer">Automation Services</a>
-    <a href="contact.html" style="color:var(--gold);">Contact us</a>
-    <div class="lang-switch lang-switch-mobile" role="group" aria-label="Language">
-      <span class="lang-btn active" aria-current="true">English</span>
-      <a href="es/index.html" class="lang-btn" data-lang-alt>Español</a>
+    <a href="index.html">Inicio</a>
+    <a href="servicios.html">Servicios</a>
+    <a href="proyectos.html">Proyectos</a>
+    <a href="https://ramosstudiocr.com/" target="_blank" rel="noopener noreferrer">Servicios de Automatización</a>
+    <a href="contacto.html" style="color:var(--gold);">Contáctenos</a>
+    <div class="lang-switch lang-switch-mobile" role="group" aria-label="Idioma">
+      <a href="../index.html" class="lang-btn" data-lang-alt>English</a>
+      <span class="lang-btn active" aria-current="true">Español</span>
     </div>
   </div>
 </header>
@@ -86,9 +86,9 @@
     }
   });
 
-  // Language switch — link to the equivalent Spanish page
-  const esMap = { index: 'index.html', services: 'servicios.html', projects: 'proyectos.html', contact: 'contacto.html' };
-  const esHref = 'es/' + (esMap[current] || 'index.html');
-  document.querySelectorAll('[data-lang-alt]').forEach(a => a.setAttribute('href', esHref));
+  // Language switch — link to the equivalent English page
+  const enMap = { index: 'index.html', servicios: 'services.html', proyectos: 'projects.html', contacto: 'contact.html' };
+  const enHref = '../' + (enMap[current] || 'index.html');
+  document.querySelectorAll('[data-lang-alt]').forEach(a => a.setAttribute('href', enHref));
 })();
 </script>

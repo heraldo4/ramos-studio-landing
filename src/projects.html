@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Portafolio de proyectos BIM — RAMOS Studio CR. Arquitectura, paisajismo y electromecánica en Costa Rica.">
-  <title>Proyectos | RAMOS Studio CR</title>
+  <meta name="description" content="BIM project portfolio — RAMOS Studio CR. Architecture, landscaping and electromechanical engineering in Costa Rica.">
+  <title>Projects | RAMOS Studio CR</title>
   <link rel="icon" href="favicon.png" type="image/png">
-  <link href="output.css?v=24" rel="stylesheet">
+  <link href="output.css?v=25" rel="stylesheet">
+  <link rel="canonical" href="https://www.rstudiocr.com/projects">
+  <link rel="alternate" hreflang="en" href="https://www.rstudiocr.com/projects">
+  <link rel="alternate" hreflang="es" href="https://www.rstudiocr.com/es/proyectos">
+  <link rel="alternate" hreflang="x-default" href="https://www.rstudiocr.com/projects">
 </head>
 <body>
 
@@ -17,13 +21,13 @@
   ════════════════════════════════════════ -->
   <section style="padding:160px 32px 80px; text-align:center; background:radial-gradient(ellipse at 50% 0%, rgba(0,0,0,0.03) 0%, transparent 60%), var(--dark);">
     <div style="max-width:700px; margin:0 auto;">
-      <span class="section-label reveal">Portafolio</span>
+      <span class="section-label reveal">Portfolio</span>
       <h1 class="reveal reveal-delay-1" style="font-size:clamp(2rem,5vw,3.4rem); font-weight:700; color:#111; line-height:1.15; margin-bottom:20px;">
-        Proyectos <span class="text-gold">Destacados</span>
+        Featured <span class="text-gold">Projects</span>
       </h1>
       <div class="divider-gold reveal reveal-delay-1" style="margin-bottom:24px;"></div>
       <p class="reveal reveal-delay-2" style="color:#555; font-size:1.05rem; line-height:1.8;">
-        Cada proyecto refleja nuestro compromiso con la precisión técnica, la innovación digital y la excelencia en la entrega.
+        Every project reflects our commitment to technical precision, digital innovation and excellence in delivery.
       </p>
     </div>
   </section>
@@ -33,16 +37,16 @@
   ════════════════════════════════════════ -->
   <section style="padding:20px 32px 0; max-width:1280px; margin:0 auto;">
     <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;" id="filter-btns">
-      <button class="filter-btn active" data-filter="all">Todos</button>
-      <button class="filter-btn" data-filter="arquitectura">Arquitectura</button>
-      <button class="filter-btn" data-filter="paisajismo">Paisajismo</button>
-      <button class="filter-btn" data-filter="electrico">Eléctrico</button>
-      <button class="filter-btn" data-filter="mecanico">Mecánico</button>
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="arquitectura">Architecture</button>
+      <button class="filter-btn" data-filter="paisajismo">Landscaping</button>
+      <button class="filter-btn" data-filter="electrico">Electrical</button>
+      <button class="filter-btn" data-filter="mecanico">Mechanical</button>
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════
-       PROJECT GALLERIES (apartados por disciplina)
+       PROJECT GALLERIES (grouped by discipline)
   ════════════════════════════════════════ -->
   <section style="padding:48px 32px 100px; max-width:1280px; margin:0 auto;">
     <div id="projects-grid"></div>
@@ -53,12 +57,12 @@
   ════════════════════════════════════════ -->
   <div class="lightbox" id="lightbox">
     <div class="lightbox-title" id="lightboxTitle"></div>
-    <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
-    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Foto anterior">‹</button>
+    <button class="lightbox-close" id="lightboxClose" aria-label="Close">✕</button>
+    <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous photo">‹</button>
     <div class="lightbox-stage" id="lightboxStage">
       <img class="lightbox-img" id="lightboxImg" src="" alt="">
     </div>
-    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Foto siguiente">›</button>
+    <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next photo">›</button>
     <div class="lightbox-bottom">
       <div class="lightbox-counter" id="lightboxCounter"></div>
       <div class="lightbox-thumbs" id="lightboxThumbs"></div>
@@ -70,11 +74,11 @@
   ════════════════════════════════════════ -->
   <section style="background:var(--dark-3); border-top:1px solid rgba(0,0,0,0.08); padding:100px 32px; text-align:center;">
     <div style="max-width:600px; margin:0 auto;">
-      <span class="section-label reveal">Siguiente paso</span>
-      <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#111; margin-bottom:16px;">Tu proyecto podría estar aquí</h2>
-      <p class="reveal reveal-delay-2" style="color:#555; margin-bottom:36px; line-height:1.8;">Trabajamos contigo desde la idea inicial hasta la entrega final con tecnología BIM de clase mundial.</p>
-      <a href="contacto.html" class="btn-gold reveal reveal-delay-3">
-        Comenzar proyecto
+      <span class="section-label reveal">Next step</span>
+      <h2 class="reveal reveal-delay-1" style="font-size:clamp(1.6rem,3.5vw,2.4rem); font-weight:700; color:#111; margin-bottom:16px;">Your project could be here</h2>
+      <p class="reveal reveal-delay-2" style="color:#555; margin-bottom:36px; line-height:1.8;">We work with you from the initial idea to final delivery with world-class BIM technology.</p>
+      <a href="contact.html" class="btn-gold reveal reveal-delay-3">
+        Start a project
         <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
       </a>
     </div>
@@ -147,7 +151,7 @@
       color: var(--gold);
     }
 
-    /* ── Individual photo grid (bento: primera foto destacada) ── */
+    /* ── Individual photo grid (bento: first photo featured) ── */
     .photo-grid {
       display: grid;
       grid-template-columns: repeat(6, 1fr);
@@ -209,7 +213,7 @@
     .photo-card:hover .photo-card-zoom { opacity: 1; transform: scale(1); }
     .photo-card.featured .photo-card-zoom svg { width: 26px; height: 26px; padding: 15px; }
 
-    /* ── Placeholder (disciplina sin fotos aún) ── */
+    /* ── Placeholder (discipline without photos yet) ── */
     .disc-placeholder {
       border-radius: 16px;
       border: 1.5px dashed rgba(0,0,0,0.16);
@@ -374,8 +378,8 @@
   </style>
 
   <script>
-    // Los <script> insertados vía innerHTML no se ejecutan solos:
-    // hay que recrearlos para que el navegador los corra.
+    // Scripts inserted via innerHTML don't execute on their own:
+    // they must be recreated so the browser actually runs them.
     function injectHTML(el, html) {
       el.innerHTML = html;
       el.querySelectorAll('script').forEach(old => {
@@ -392,13 +396,13 @@
     document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => obs.observe(el));
 
     // ─── DISCIPLINE GALLERIES ──────────────────────────────────
-    // Para agregar una foto nueva: solo añade su ruta al arreglo "images"
-    // de la disciplina correspondiente.
+    // To add a new photo: just add its path to the "images" array
+    // of the corresponding discipline.
     const galleries = {
       arquitectura: {
-        title: 'Arquitectura BIM',
-        tag: 'Arquitectura · Residencial y Comercial',
-        desc: 'Modelado arquitectónico completo con Revit, desde el diseño conceptual hasta la documentación constructiva lista para obra.',
+        title: 'BIM Architecture',
+        tag: 'Architecture · Residential and Commercial',
+        desc: 'Complete architectural modeling with Revit, from conceptual design to construction-ready documentation.',
         badges: ['Revit Architecture', 'LOD 400'],
         images: [
           'img/Arquitectura/6.223.jpg',
@@ -408,9 +412,9 @@
         ]
       },
       electrico: {
-        title: 'Sistemas Eléctricos',
-        tag: 'Eléctrico · Coordinación MEP',
-        desc: 'Diseño y coordinación BIM de instalaciones eléctricas, con detección de interferencias y documentación técnica precisa.',
+        title: 'Electrical Systems',
+        tag: 'Electrical · MEP Coordination',
+        desc: 'BIM design and coordination of electrical installations, with clash detection and precise technical documentation.',
         badges: ['Revit MEP', 'Clash Detection'],
         images: [
           'img/Eléctrico/1E.jpg',
@@ -425,24 +429,24 @@
         ]
       },
       paisajismo: {
-        title: 'Paisajismo BIM',
-        tag: 'Paisajismo',
-        desc: 'Diseño sostenible de espacios exteriores integrado al modelo BIM.',
+        title: 'BIM Landscaping',
+        tag: 'Landscaping',
+        desc: 'Sustainable outdoor space design integrated into the BIM model.',
         badges: ['Civil 3D', 'Lumion'],
         images: [
           'img/Paisajismo/proyecto1.jpg'
         ]
       },
       mecanico: {
-        title: 'Sistemas Mecánicos',
-        tag: 'Mecánico · HVAC',
-        desc: 'Diseño de sistemas mecánicos, HVAC y plomería coordinados en BIM.',
+        title: 'Mechanical Systems',
+        tag: 'Mechanical · HVAC',
+        desc: 'Mechanical, HVAC and plumbing system design coordinated in BIM.',
         badges: ['Revit MEP', 'HVAC'],
         images: []
       }
     };
 
-    function countLabel(n) { return n === 1 ? '1 foto' : n + ' fotos'; }
+    function countLabel(n) { return n === 1 ? '1 photo' : n + ' photos'; }
 
     function renderGalleries() {
       const grid = document.getElementById('projects-grid');
@@ -450,8 +454,8 @@
         const badgesHtml = g.badges.map(b => `<span class="disc-badge-pill">${b}</span>`).join('');
         const body = g.images.length
           ? `<div class="photo-grid">${g.images.map((src, i) => `
-              <div class="photo-card${i === 0 ? ' featured' : ''} reveal reveal-delay-${(i % 4) + 1}" data-key="${key}" data-index="${i}" tabindex="0" role="button" aria-label="Ver foto ${i + 1} de ${g.title}">
-                <img src="${src}" alt="${g.title} — foto ${i + 1}" loading="lazy">
+              <div class="photo-card${i === 0 ? ' featured' : ''} reveal reveal-delay-${(i % 4) + 1}" data-key="${key}" data-index="${i}" tabindex="0" role="button" aria-label="View photo ${i + 1} of ${g.title}">
+                <img src="${src}" alt="${g.title} — photo ${i + 1}" loading="lazy">
                 <div class="photo-card-zoom">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
                 </div>
@@ -459,7 +463,7 @@
           : `<div class="disc-placeholder">
               <div>
                 <div class="disc-placeholder-icon">✦</div>
-                <p>Próximamente — nuevos proyectos en camino.</p>
+                <p>Coming soon — new projects on the way.</p>
               </div>
             </div>`;
 
@@ -504,7 +508,7 @@
 
     function renderThumbs() {
       lbThumbs.innerHTML = currentImages.map((src, i) => `
-        <button class="lightbox-thumb${i === currentIndex ? ' active' : ''}" data-index="${i}" aria-label="Ir a foto ${i + 1}">
+        <button class="lightbox-thumb${i === currentIndex ? ' active' : ''}" data-index="${i}" aria-label="Go to photo ${i + 1}">
           <img src="${src}" alt="" loading="lazy">
         </button>`).join('');
       lbThumbs.querySelectorAll('.lightbox-thumb').forEach(t => {
@@ -560,7 +564,7 @@
       if (e.key === 'ArrowLeft') prevImg();
     });
 
-    // Swipe táctil
+    // Touch swipe
     let touchStartX = 0;
     lbStage.addEventListener('touchstart', e => { touchStartX = e.changedTouches[0].clientX; }, { passive: true });
     lbStage.addEventListener('touchend', e => {
